@@ -1,0 +1,49 @@
+See slides online
+
+- Recap of content-based and collaborative filtering
+
+Midterm topics:
+- Association Rules vs predictive Modeling
+	- Association rules provide insights into patterns without a target variable.
+	- Predictive modeling is better for predicting specific outcomes. 
+
+- What are the map and reduce steps in distributed file systems (Hadoop)? How is this used for frequent item sets?
+	- Map step performs an initial computation on a node, reduce combines the outputs of those functions.
+	- Reduce aggregates results from all nodes
+
+- Experimental design for modeling
+	- Here is a problem type, what partitioning method would you use?
+	- e.g. Say you wanted to predict next-day returns using market data. What stocks should I buy today? Train a model on the last 10 years of data. Should I used random partitioning, group partitioning, time-based partitioning, stratified partitioning. Time-based partitioning. e.g. Predicting health disorders from x-ray images. Group partitioning.
+
+- Describe the PageRank algorithm. 
+- Describe which pages are important by links.
+	- A page is considered important if it is linked to by many other pages. Importance is proportional to the importance of those other pages. It models a random surfer who clicks on links at random (with teleportation to escape spider traps).	
+
+- Describe BM25.
+- Describe which pages are relevant by content.
+	- It is a ranking function used in retrieval. Based on bag-of-words, which assumes the relevance of a document depends on the occurrence and frequency of search terms within it. BM25 considers TF & IDF
+
+- What is tf-idf and bag-of-words? What are the goals of each and how might they be used together to build a search engine?
+	-tf-idf: term frequency-inverse document frequency. = TF * IDF. Prioritizes rare meaningful words & deprioritizes common words. Still doesn't consider word order or context. Efficient for large vocab.
+	-bag-of-words: takes words as features, documents as samples. Calculates similarity based on presence of same words. Ignores context and order.
+
+- Transformers, Generative AI and LLMs.
+	- Describe RAG.
+		- Embedding models for retrieval/semantic search. 
+		- LLM for response.
+	- How are LLMs and embedding models used?
+		- LLMs are used for text generation, translation, classification, question answering, & summarization.
+		- Embeddings capture meaning and relationships between words. 
+	- How could you combine BM25 and embedding models to improved the retrieval process?
+		- Maybe something just happened or came out, your embedding model might not have been trained on that data yet. You can use a retriever like BM25 to get that context for your embedding model.
+	- Encoder vs Decoder. Which is used for generative AI/LLMs
+		- Both are necessary, but decoder is the part actually used for generation.
+		- Masking in the context of an encoder: Used to guide the encoder's attention. Masks padding tokens which carry no meaning during training.
+		- Masking in the context of a decoder: Masked attention. Masks all tokens to the right of the current one being attended to. Masked attention: in the decoder; the mask matrix adds -inf to certain words' attention scores to make the decoder not pay attention to future words.
+
+- Collaborative filtering vs content-based filtering. [More in notes]
+	- Collaborative filtering: compares items by user similarity
+	- Content based filtering: compares items by item similarity
+	- Memory-based collaborative filtering: trains fast, predicts slow
+	- Model-based collaborative filtering: trains slow, predicts fast
+
